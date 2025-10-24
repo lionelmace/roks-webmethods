@@ -6,7 +6,7 @@
 variable "namespace_region" {
   type        = string
   description = "The IBM Cloud region where the container registry namespace and retention policy will be created or where the existing namespace is located."
-  default     = "us-south"
+  default     = "eu-de"
 }
 
 variable "existing_namespace_name" {
