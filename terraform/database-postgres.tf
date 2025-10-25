@@ -76,7 +76,7 @@ module "database" {
   memory_mb           = var.memory_mb
   disk_mb             = var.disk_mb
   cpu_count           = var.cpu_count
-_  service_credential_names = {
+  service_credential_names = {
     "postgresql_admin" : "Administrator",
     "postgresql_operator" : "Operator",
     "postgresql_viewer" : "Viewer",
