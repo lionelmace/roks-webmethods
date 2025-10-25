@@ -95,7 +95,7 @@ module "ocp_base" {
   ignore_worker_pool_size_changes = true
   addons = {
     "cluster-autoscaler" = { version = "1.2.3" }
-    "vpc-file-csi-driver" = { version = "2.0.16" }
+    "vpc-file-csi-driver" = { version = "2.0" }
   }
   kms_config = {
     instance_id = module.kp_all_inclusive.kms_guid
