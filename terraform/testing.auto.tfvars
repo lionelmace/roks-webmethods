@@ -9,6 +9,7 @@ region = "eu-de"
 ## Module OCP VPC
 ##############################################################################
 ocp_version = "4.18"
+disable_outbound_traffic_protection = false
 
 ##############################################################################
 ## Module ICD Postgresql
