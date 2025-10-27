@@ -1,4 +1,11 @@
-
+########################################################################################################################
+# Variables
+########################################################################################################################
+variable "disable_outbound_traffic_protection" {
+  type        = bool
+  description = "When set to true, enabled outbound traffic."
+  default     = false
+}
 
 
 ########################################################################################################################
@@ -78,23 +85,24 @@ locals {
 module "ocp_base" {
   source = "terraform-ibm-modules/base-ocp-vpc/ibm"
 
-  cluster_name                     = var.prefix
-  resource_group_id                = module.resource_group.resource_group_id
-  region                           = var.region
-  force_delete_storage             = true
-  vpc_id                           = ibm_is_vpc.vpc.id
-  vpc_subnets                      = local.cluster_vpc_subnets
-  worker_pools                     = local.worker_pools
-  ocp_version                      = var.ocp_version
-  tags                             = var.resource_tags
-  access_tags                      = var.access_tags
-  worker_pools_taints              = local.worker_pools_taints
-  ocp_entitlement                  = var.ocp_entitlement
-  enable_openshift_version_upgrade = var.enable_openshift_version_upgrade
+  cluster_name                        = var.prefix
+  resource_group_id                   = module.resource_group.resource_group_id
+  region                              = var.region
+  force_delete_storage                = true
+  vpc_id                              = ibm_is_vpc.vpc.id
+  vpc_subnets                         = local.cluster_vpc_subnets
+  worker_pools                        = local.worker_pools
+  ocp_version                         = var.ocp_version
+  tags                                = var.resource_tags
+  access_tags                         = var.access_tags
+  worker_pools_taints                 = local.worker_pools_taints
+  ocp_entitlement                     = var.ocp_entitlement
+  enable_openshift_version_upgrade    = var.enable_openshift_version_upgrade
+  disable_outbound_traffic_protection = var.disable_outbound_traffic_protection
   # Enable if using worker autoscaling. Stops Terraform managing worker count.
   ignore_worker_pool_size_changes = true
   addons = {
-    "cluster-autoscaler" = { version = "1.2.3" }
+    "cluster-autoscaler"  = { version = "1.2.3" }
     "vpc-file-csi-driver" = { version = "2.0" }
   }
   kms_config = {

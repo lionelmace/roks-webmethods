@@ -8,8 +8,8 @@ region = "eu-de"
 ##############################################################################
 ## Module OCP VPC
 ##############################################################################
-ocp_version = "4.18"
-disable_outbound_traffic_protection = false
+ocp_version                         = "4.18"
+disable_outbound_traffic_protection = true
 
 ##############################################################################
 ## Module ICD Postgresql
@@ -17,7 +17,7 @@ disable_outbound_traffic_protection = false
 postgresql_version = "17"
 memory_mb          = 4096
 disk_mb            = 107520
-cpu_count         = 2
+cpu_count          = 2
 
 ##############################################################################
 ## Module Registry
