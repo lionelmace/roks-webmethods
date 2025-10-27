@@ -5,6 +5,9 @@ terraform-iam/testing.auto.tfvars
 # Infracost
 **/.infracost/*
 
+# Logs
+*.log
+
 # Key
 *.pem
 *.pub
