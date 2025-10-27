@@ -45,15 +45,16 @@ module "namespace" {
 }
 
 module "upgrade_plan" {
-  # source = "../..//modules/plan"
   source = "terraform-ibm-modules/container-registry/ibm//modules/plan"
 }
 
 module "set_quota" {
-  # source            = "../../modules/quotas"
   source = "terraform-ibm-modules/container-registry/ibm//modules/quotas"
-  storage_megabytes = 5 * 1024 - 1
-  traffic_megabytes = 499
+  # storage_megabytes = 5 * 1024 - 1
+  # The value -1 denotes Unlimited
+  storage_megabytes = -1
+  # traffic_megabytes = 499
+  traffic_megabytes = -1
 }
 
 ##############################################################################
