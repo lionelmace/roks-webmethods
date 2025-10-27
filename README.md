@@ -1,4 +1,4 @@
-# Terraform scripts to deploy webMethods
+# Terraform scripts to provision the IBM Cloud infrastructure required to deploy webMethods
 
 Those Terraform scripts will provision the following services
 * VPC with 3 subnets to host the cluster
