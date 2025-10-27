@@ -35,7 +35,7 @@ module "namespace" {
   providers = {
     ibm = ibm.namespace
   }
-  source                  = "../.."
+  source                  = "terraform-ibm-modules/container-registry/ibm"
   namespace_name          = var.prefix == null ? "namespace" : "${var.prefix}-namespace"
   existing_namespace_name = var.existing_namespace_name
   resource_group_id       = module.resource_group.resource_group_id
@@ -45,11 +45,13 @@ module "namespace" {
 }
 
 module "upgrade_plan" {
-  source = "../..//modules/plan"
+  # source = "../..//modules/plan"
+  source = "terraform-ibm-modules/container-registry/ibm//modules/plan"
 }
 
 module "set_quota" {
-  source            = "../../modules/quotas"
+  # source            = "../../modules/quotas"
+  source = "terraform-ibm-modules/container-registry/ibm//modules/quotas"
   storage_megabytes = 5 * 1024 - 1
   traffic_megabytes = 499
 }
